@@ -79,11 +79,11 @@ foreach ($users as $line) {
     </tr>
 
     <?php
-    // عرض البيانات في جدول
-    $user_count = count($user_data) / 6; // كل مستخدم يحتوي على 6 أسطر من البيانات
+   
+    $user_count = count($user_data) / 6; 
     for ($i = 0; $i < $user_count; $i++) {
-        $imagePath = $user_data[$i * 6 + 5][1]; // استرجاع مسار الصورة المخزنة
-        $imageUrl = 'uploads/' . basename($imagePath); // تأكد من أن المسار يتضمن مجلد 'uploads'
+        $imagePath = $user_data[$i * 6 + 5][1];
+        $imageUrl = 'uploads/' . basename($imagePath);
 echo "$imageUrl";
 
         echo "<tr>";
@@ -92,7 +92,7 @@ echo "$imageUrl";
         echo "<td>" . $user_data[$i * 6 + 2][1] . "</td>";
         echo "<td>" . $user_data[$i * 6 + 3][1] . "</td>";
         echo "<td>" . $user_data[$i * 6 + 4][1] . "</td>";
-        echo "<td><img src='$imageUrl' alt='Profile Picture'></td>"; // عرض الصورة
+        echo "<td><img src='$imageUrl' alt='Profile Picture'></td>"; 
 
        echo "</tr>";
 	
