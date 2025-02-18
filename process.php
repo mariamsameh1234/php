@@ -57,23 +57,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // تأكد من وجود المجلد "uploads"
+   
     $upload_dir = "uploads/";
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }
 
-    // استخدام البريد الإلكتروني كاسم للصورة
-    $email_filename = preg_replace('/[^a-zA-Z0-9_]/', '_', $email); // استبدال الأحرف غير المسموح بها
-    $new_filename = $email_filename . "." . $file_ext; // إضافة الامتداد
+    
+    $email_filename = preg_replace('/[^a-zA-Z0-9_]/', '_', $email);
+    $new_filename = $email_filename . "." . $file_ext; 
 
     $upload_path = $upload_dir . $new_filename;
     move_uploaded_file($profile_picture['tmp_name'], $upload_path);
 
-    // تشفير كلمة المرور
+  
     $hashedPassword = md5($password);
 
-    // فتح الملف وكتابة البيانات
+    
     $file = fopen("users.txt", "a");
     fwrite($file, "name: " . $name . "\n");
     fwrite($file, "email: " . $email . "\n");
